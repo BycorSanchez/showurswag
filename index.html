@@ -6,11 +6,10 @@
     <title>Show ur Swag</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css">
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
 </head>
 <body>
     <div class="top-left-icons">
-        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <button class="theme-toggle">🌙</button>
     </div>
 
     <div id="upload-screen">
@@ -24,102 +23,15 @@
     </div>
     
     <div id="swagger-screen" class="hidden">
-        <div id="swagger-top-bar" class="top-bar">
+        <div class="top-bar">
             <span>Show ur Swag</span>
             <button id="backButton">Volver</button>
         </div>
         <div id="swagger-container"></div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <script>
-        const dropzone = document.getElementById("dropzone");
-        const fileInput = document.getElementById("fileInput");
-        const uploadScreen = document.getElementById("upload-screen");
-        const swaggerScreen = document.getElementById("swagger-screen");
-        const swaggerTopBar = document.getElementById("swagger-top-bar");
-
-        const swaggerContainer = document.getElementById("swagger-container");
-        const backButton = document.getElementById("backButton");
-        const themeToggle = document.getElementById("themeToggle");
-        
-        themeToggle.addEventListener("click", () => {
-            uploadScreen.classList.toggle("dark-mode");
-            swaggerTopBar.classList.toggle("dark-mode");
-            if (uploadScreen.classList.contains("dark-mode")) {
-                themeToggle.textContent = "☀️";
-            } else {
-                themeToggle.textContent = "🌙";
-            }
-        });
-
-        function showSwagger(jsonContent) {
-            uploadScreen.classList.add("hidden")
-            swaggerScreen.classList.remove("hidden")
-            SwaggerUIBundle({ spec: jsonContent, dom_id: "#swagger-container" });
-            const compressed = LZString.compressToEncodedURIComponent(JSON.stringify(jsonContent));
-            history.replaceState(null, "", `?swagger=${compressed}`);
-        }
-
-        function handleFile(file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                try {
-                    let jsonContent;
-                    if (file.name.endsWith(".yaml") || file.name.endsWith(".yml")) {
-                        jsonContent = jsyaml.load(e.target.result);
-                    } else if (file.name.endsWith(".json")) {
-                        jsonContent = JSON.parse(e.target.result);
-                    } else {
-                        alert("Solo se permiten archivos YAML o JSON.");
-                        return;
-                    }
-                    showSwagger(jsonContent);
-                } catch (error) {
-                    alert("Error al procesar el archivo.");
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        dropzone.addEventListener("click", () => fileInput.click());
-        fileInput.addEventListener("change", (event) => {
-            if (event.target.files.length > 0) {
-                handleFile(event.target.files[0]);
-                event.target.value = null;
-            } 
-        });
-
-        dropzone.addEventListener("dragover", (event) => {
-            event.preventDefault();
-            dropzone.style.background = "#f0f8ff";
-        });
-        dropzone.addEventListener("dragleave", () => dropzone.style.background = "white");
-        dropzone.addEventListener("drop", (event) => {
-            event.preventDefault();
-            dropzone.style.background = "white";
-            if (event.dataTransfer.files.length > 0) handleFile(event.dataTransfer.files[0]);
-        });
-        
-        backButton.addEventListener("click", () => {
-            // localStorage.removeItem("swaggerData");
-            history.replaceState(null, "", window.location.pathname);
-            swaggerScreen.classList.add("hidden")
-            uploadScreen.classList.remove("hidden")
-        });
-
-        // Detectar si hay un parámetro en la URL con YAML comprimido
-        const urlParams = new URLSearchParams(window.location.search);
-        const swaggerParam = urlParams.get("swagger");
-        if (swaggerParam) {
-            try {
-                const jsonContent = JSON.parse(LZString.decompressFromEncodedURIComponent(swaggerParam));
-                showSwagger(jsonContent);
-            } catch (error) {
-                console.error("Error al cargar Swagger desde la URL", error);
-            }
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
