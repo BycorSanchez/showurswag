@@ -1,10 +1,12 @@
 :root {
     --background-light: #d2ccba;
+    --background-from-light: #bfbfbf;
     --text-light: #2f2c27;
-    --accent-light: #a67c52;
-    --dropzone-light: #f5e6ca;
-    --dropzone-border-light: #8b5e3c;
+    --accent-light: #798d6e;
+    --dropzone-light: #99a289;
+    --dropzone-border-light: #4D6D48;
 
+    --background-from-dark: #445784;
     --background-dark: #1E2A47;
     --text-dark: #EAE0D5;
     --accent-dark: #0d6f54;
@@ -22,9 +24,11 @@ body {
     display: none !important; 
 }
 
+
 /* Pantalla de carga */
 #upload-screen {
-    background-color: var(--background-light);
+    font-family: "Crimson Text", serif;
+    background: linear-gradient(to bottom, var(--background-from-light), var(--background-light));
     color: var(--text-light);
     display: flex;
     justify-content: center;
@@ -48,10 +52,11 @@ body {
 h1 {
     font-size: 2.5rem;
     margin: 0;
+    font-family: "Montserrat", serif;
 }
 
 .description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
@@ -62,10 +67,15 @@ h1 {
     cursor: pointer;
     background: var(--dropzone-light);
     transition: 0.3s;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .dropzone:hover {
+    background: var(--accent-light);
+}
+
+.dropzone.dragover {
+    box-shadow: 1px 0px 20px 10px #00000026;
     background: var(--accent-light);
 }
 
@@ -87,7 +97,7 @@ h1 {
 }
 
 .dark-mode #upload-screen {
-    background-color: var(--background-dark);
+    background: linear-gradient(to bottom, var(--background-from-dark), var(--background-dark));
     color: var(--text-dark);
 }
 
@@ -100,14 +110,19 @@ h1 {
     background: var(--accent-dark);
 }
 
+
+.dark-mode #upload-screen .dropzone.dragover {
+    box-shadow: 1px 0px 20px 10px #ffffff26;
+    background: var(--accent-dark);
+}
+
 .dark-mode #upload-screen .theme-toggle {
     color: var(--text-dark);
 }
 
-
 /* Pantalla de Swagger */
 .top-bar {
-    background-color: var(--background-light);
+    background: var(--background-light);
     color: var(--text-light);
     transition: background-color 0.3s, color 0.3s;
     position: fixed; 

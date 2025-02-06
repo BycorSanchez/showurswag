@@ -66,9 +66,11 @@ function main() {
     dropzone.addEventListener("click", () => fileInput.click());    
     dropzone.addEventListener("dragover", (event) => {
         event.preventDefault();
+        dropzone.classList.add('dragover');
     });
     dropzone.addEventListener("drop", (event) => {
         event.preventDefault();
+        dropzone.classList.remove('dragover');
         if (event.dataTransfer.files.length > 0) handleFile(event.dataTransfer.files[0]);
     });
 
