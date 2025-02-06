@@ -20,8 +20,11 @@ function main() {
 
     function toggleTheme() {
         document.body.classList.toggle("dark-mode");
-        const icon = document.body.classList.contains("dark-mode") ? "☀️" :  "🌙";
-        themeToggles.forEach(t => t.textContent = icon);
+        const icon = document.getElementById('theme-icon');
+        const isDarkMode = document.body.classList.contains("dark-mode");
+        icon.src = isDarkMode ? "res/sun.svg" : "res/moon.svg";
+        icon.title = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
+        icon.alt = isDarkMode ? "Sun" : "Moon";
     }
 
     function showSwagger(json) {
