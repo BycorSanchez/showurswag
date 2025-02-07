@@ -15,7 +15,6 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -27,7 +26,8 @@ body {
 
 /* Pantalla de carga */
 #upload-screen {
-    font-family: "Crimson Text", serif;
+    font-family: "Poppins", serif;
+    font-weight: 300;
     background: linear-gradient(to bottom, var(--background-from-light), var(--background-light));
     color: var(--text-light);
     display: flex;
@@ -41,7 +41,7 @@ body {
 #upload-container {
     text-align: center; 
     padding: 50px; 
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .logo {
@@ -50,13 +50,15 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
     margin: 0;
-    font-family: "Montserrat", serif;
+    font-family: "Galada", serif;
+    font-style: normal;
 }
 
 .description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
@@ -67,7 +69,8 @@ h1 {
     cursor: pointer;
     background: var(--dropzone-light);
     transition: 0.3s;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
 .dropzone:hover {
@@ -122,6 +125,8 @@ h1 {
 
 /* Pantalla de Swagger */
 .top-bar {
+    font-family: "Galada", serif;
+    font-size: 1.6rem;
     background: var(--background-light);
     color: var(--text-light);
     transition: background-color 0.3s, color 0.3s;
@@ -132,8 +137,10 @@ h1 {
     padding: 10px 20px; 
     display: flex; 
     justify-content: space-between; 
-    align-items: center; 
+    align-items: center;
+    z-index: 10;
 }
+
 .top-bar button {
     background: white; 
     color: #007bff; 
