@@ -14,6 +14,16 @@
     --dropzone-border-dark: #10D6A1;
 }
 
+@font-face {
+    font-family: 'Galada';
+    src: url(res/Galada-Regular.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(res/Poppins-Regular.ttf) format('woff2');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -46,7 +56,6 @@ body {
 
 .logo {
     width: 400px;
-    margin-bottom: 10px;
 }
 
 h1 {
@@ -58,7 +67,7 @@ h1 {
 
 .description {
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 20px;
 }
 
@@ -90,7 +99,7 @@ h1 {
     gap: 15px;
 }
 
-.theme-toggle {
+#theme-toggle {
     cursor: pointer;
     font-size: 1.5rem;
     border: none;
@@ -119,7 +128,7 @@ h1 {
     background: var(--accent-dark);
 }
 
-.dark-mode #upload-screen .theme-toggle {
+.dark-mode #theme-toggle {
     color: var(--text-dark);
 }
 

@@ -5,7 +5,7 @@ function main() {
     const uploadScreen = document.getElementById("upload-screen");
     const swaggerScreen = document.getElementById("swagger-screen");
     const backButton = document.getElementById("backButton");
-    const themeToggles = Array.from(document.getElementsByClassName("theme-toggle"));
+    const themeToggle = document.getElementById("theme-toggle");
 
     const urlParams = new URLSearchParams(window.location.search);
     const spec = urlParams.get("swag");
@@ -57,7 +57,7 @@ function main() {
         reader.readAsText(file);
     }
 
-    themeToggles.forEach(t => t.addEventListener("click", toggleTheme));
+    themeToggle.addEventListener("click", toggleTheme);
 
     fileInput.addEventListener("change", (event) => {
         if (event.target.files.length > 0) {
