@@ -1,11 +1,12 @@
-
-function main() {
+document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    const logo = document.getElementById("logo");
     const dropzone = document.getElementById("dropzone");
     const fileInput = document.getElementById("fileInput");
     const uploadScreen = document.getElementById("upload-screen");
     const swaggerScreen = document.getElementById("swagger-screen");
     const backButton = document.getElementById("backButton");
-    const themeToggle = document.getElementById("theme-toggle");
+    const shareButton = document.getElementById("shareButton");
 
     const urlParams = new URLSearchParams(window.location.search);
     const spec = urlParams.get("swag");
@@ -18,16 +19,12 @@ function main() {
         }
     }
 
-    function toggleTheme() {
-        document.body.classList.toggle("dark-mode");
-        const icon = document.getElementById('theme-icon');
-        const isDarkMode = document.body.classList.contains("dark-mode");
-        icon.src = isDarkMode ? "res/sun.svg" : "res/moon.svg";
-        icon.title = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
-        icon.alt = isDarkMode ? "Sun" : "Moon";
+    if (navigator.canShare) {
+        shareButton.classList.remove("hidden");
     }
 
     function showSwagger(json) {
+        body.classList.add("default-background");
         uploadScreen.classList.add("hidden");
         swaggerScreen.classList.remove("hidden");
         SwaggerUIBundle({ spec: json, dom_id: "#swagger-container" });
@@ -57,7 +54,9 @@ function main() {
         reader.readAsText(file);
     }
 
-    themeToggle.addEventListener("click", toggleTheme);
+    logo.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+    })
 
     fileInput.addEventListener("change", (event) => {
         if (event.target.files.length > 0) {
@@ -81,9 +80,17 @@ function main() {
         history.replaceState(null, "", window.location.pathname);
         swaggerScreen.classList.add("hidden");
         uploadScreen.classList.remove("hidden");
+        body.classList.remove("default-background");
     });
-}
 
-document.addEventListener('DOMContentLoaded', function() {
-    main();
+    shareButton.addEventListener("click", () => {
+        navigator.share({
+            title: "Share my Swag - API Documentation",
+            url: window.location
+            }).then(() => {
+                console.log('Thanks for sharing!');
+            })
+            .catch(console.error);
+    });
+
 });

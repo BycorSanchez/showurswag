@@ -8,14 +8,10 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="top-left-icons">
-        <button id="theme-toggle"><img id="theme-icon" src="res/moon.svg" alt="Moon" title="Switch to dark mode"></button>
-    </div>
-
     <div id="upload-screen">
         <div id="upload-container">
             <h1>Show ur Swag</h1>
-            <img src="res/logo.png" alt="Show ur Swag Logo" class="logo">
+            <img id="logo" src="res/logo.png" alt="Show ur Swag Logo" >
             <p class="description">Easily upload and visualize your API documentation from YAML or JSON files. Just drag and drop your file, and Swagger UI will render it instantly!</p>
             <div class="dropzone" id="dropzone">Drag & drop your YAML/JSON file here or click to select one</div>
             <input type="file" id="fileInput" accept=".yaml,.yml,.json" class="hidden">
@@ -24,8 +20,8 @@
     
     <div id="swagger-screen" class="hidden">
         <div class="top-bar">
-            <span>Show ur Swag</span>
-            <button id="backButton">Volver</button>
+            <button id="backButton" title="Home">Show ur Swag</button>
+            <button id="shareButton" title="Share" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 458.624 458.624" xmlns:v="https://vecta.io/nano"><path d="M339.588 314.529a71.68 71.68 0 0 0-38.621 11.239l-112.682-78.67c1.809-6.315 2.798-12.976 2.798-19.871s-.989-13.557-2.798-19.871l109.64-76.547a71.69 71.69 0 0 0 41.662 13.286c39.79 0 72.047-32.257 72.047-72.047S379.378 0 339.588 0s-72.047 32.257-72.047 72.047c0 5.255.578 10.373 1.646 15.308l-112.424 78.491a71.7 71.7 0 0 0-37.727-10.666c-39.79 0-72.047 32.257-72.047 72.047s32.256 72.047 72.047 72.047c13.834 0 26.753-3.907 37.727-10.666l113.292 79.097c-1.629 6.017-2.514 12.34-2.514 18.872 0 39.79 32.257 72.047 72.047 72.047s72.047-32.257 72.047-72.047-32.257-72.048-72.047-72.048z"/></svg></button>
         </div>
         <div id="swagger-container"></div>
     </div>
