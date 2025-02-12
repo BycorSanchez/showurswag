@@ -20,10 +20,20 @@
     src: url(res/Poppins-Regular.ttf) format('woff2');
 }
 
+html {
+    background: border-box;
+    font-size: 12px;
+}
+
 body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, var(--background-from), var(--background-main)) border-box;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidden { 
@@ -42,19 +52,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
 }
 
 #upload-container {
-    text-align: center; 
-    padding: 50px; 
-    max-width: 700px;
+    text-align: center;
+    width: 85%;
 }
 
 #logo {
-    width: 400px;
+    width: 100%;
 }
 
 h1 {
@@ -164,5 +172,29 @@ h1 {
         --dropzone-error: #9B2C2C;
         --dropzone-border-error: #C65F5F;
         --share-hover: #53596c;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    #logo {
+        width: 450px;
+    }
+
+    #upload-container {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 16px;
+    }
+
+    #upload-container {
+        max-width: 800px;
     }
 }
