@@ -43,15 +43,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (file.name.endsWith(".json")) {
                     json = JSON.parse(e.target.result);
                 } else {
-                    alert("Only YAML or JSON files allowed.");
+                    showError("Only YAML or JSON files allowed.");
                     return;
                 }
                 showSwagger(json);
             } catch (error) {
-                alert("Error processing file.");
+                showError("There was an error processing the file. Please check its format or content.");
             }
         };
         reader.readAsText(file);
+    }
+
+    function showError(message) {
+        dropzone.textContent = message;
+        dropzone.classList.add("error");
+
+        setTimeout(function() {
+            dropzone.textContent = "Drag & drop your YAML/JSON file here or click to select one";
+            dropzone.classList.remove("error");
+          }, 5000);
     }
 
     logo.addEventListener("contextmenu", (event) => {

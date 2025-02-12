@@ -5,6 +5,8 @@
     --accent: #798d6e;
     --dropzone: #99a289;
     --dropzone-border: #4D6D48;
+    --dropzone-error: #f26254;
+    --dropzone-border-error: #ab0000;
     --share-hover: #b0aa9c;
 }
 
@@ -74,19 +76,24 @@ h1 {
     border: 3px dashed var(--dropzone-border);
     border-radius: 12px;
     cursor: pointer;
-    background: var(--dropzone);
+    background-color: var(--dropzone);
     transition: 0.3s;
     font-size: 1.1rem;
     font-weight: 300;
 }
 
 .dropzone:hover {
-    background: var(--accent);
+    background-color: var(--accent);
 }
 
 .dropzone.dragover {
     box-shadow: 1px 0px 20px 10px #00000026;
-    background: var(--accent);
+    background-color: var(--accent);
+}
+
+.dropzone.error {
+    background-color: var(--dropzone-error) !important;
+    border: 3px dashed var(--dropzone-border-error);
 }
 
 .top-left-icons {
@@ -99,7 +106,7 @@ h1 {
 
 /* Pantalla de Swagger */
 .top-bar {
-    background: var(--background-main);
+    background-color: var(--background-main);
     transition: background-color 0.3s, color 0.3s;
     position: fixed; 
     top: 0; 
@@ -143,7 +150,7 @@ h1 {
 }
 
 #shareButton:hover {
-    background: var(--share-hover);
+    background-color: var(--share-hover);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -154,7 +161,8 @@ h1 {
         --accent: #0d6f54;
         --dropzone: #19504e;
         --dropzone-border: #10D6A1;
+        --dropzone-error: #9B2C2C;
+        --dropzone-border-error: #C65F5F;
         --share-hover: #53596c;
     }
 }
-  
