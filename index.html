@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show ur Swag</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.css" integrity="sha512-Fx2bx472ykst5EwyqNnGgXC2pPBxuxRnxHSa5Elf7sVbYA1vj2M/J50eJ0aXDal5hDjdSl3EEaQCaO5y69HmcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <div id="upload-container">
             <h1>Show ur Swag</h1>
             <img id="logo" src="res/logo.png" alt="Show ur Swag Logo" >
-            <p class="description">Easily upload and visualize your <a href="https://swagger.io/resources/open-api/" target="_blank">OpenAPI</a> documentation from YAML or JSON files. Give your API some swagger and let them shine in style!</p>
+            <p class="description">Easily upload and visualize your <a href="https://swagger.io/resources/open-api/" rel="noreferrer" target="_blank">OpenAPI</a> documentation from YAML or JSON files. Give your API some swagger and let them shine in style!</p>
             <div class="dropzone" id="dropzone">Drag & drop your YAML/JSON file here or click to select one</div>
             <input type="file" id="fileInput" accept=".yaml,.yml,.json" class="hidden">
         </div>
@@ -21,13 +21,13 @@
     <div id="swagger-screen" class="hidden">
         <div class="top-bar">
             <button id="backButton" title="Home">Show ur Swag</button>
-            <button id="shareButton" title="Share" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 458.624 458.624" xmlns:v="https://vecta.io/nano"><path d="M339.588 314.529a71.68 71.68 0 0 0-38.621 11.239l-112.682-78.67c1.809-6.315 2.798-12.976 2.798-19.871s-.989-13.557-2.798-19.871l109.64-76.547a71.69 71.69 0 0 0 41.662 13.286c39.79 0 72.047-32.257 72.047-72.047S379.378 0 339.588 0s-72.047 32.257-72.047 72.047c0 5.255.578 10.373 1.646 15.308l-112.424 78.491a71.7 71.7 0 0 0-37.727-10.666c-39.79 0-72.047 32.257-72.047 72.047s32.256 72.047 72.047 72.047c13.834 0 26.753-3.907 37.727-10.666l113.292 79.097c-1.629 6.017-2.514 12.34-2.514 18.872 0 39.79 32.257 72.047 72.047 72.047s72.047-32.257 72.047-72.047-32.257-72.048-72.047-72.048z"/></svg></button>
+            <!-- <button id="shareButton" title="Share" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 458.624 458.624" xmlns:v="https://vecta.io/nano"><path d="M339.588 314.529a71.68 71.68 0 0 0-38.621 11.239l-112.682-78.67c1.809-6.315 2.798-12.976 2.798-19.871s-.989-13.557-2.798-19.871l109.64-76.547a71.69 71.69 0 0 0 41.662 13.286c39.79 0 72.047-32.257 72.047-72.047S379.378 0 339.588 0s-72.047 32.257-72.047 72.047c0 5.255.578 10.373 1.646 15.308l-112.424 78.491a71.7 71.7 0 0 0-37.727-10.666c-39.79 0-72.047 32.257-72.047 72.047s32.256 72.047 72.047 72.047c13.834 0 26.753-3.907 37.727-10.666l113.292 79.097c-1.629 6.017-2.514 12.34-2.514 18.872 0 39.79 32.257 72.047 72.047 72.047s72.047-32.257 72.047-72.047-32.257-72.048-72.047-72.048z"/></svg></button> -->
         </div>
         <div id="swagger-container"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui-bundle.min.js" integrity="sha512-9tBcCofqWq+PelL6USpUB7OJrCaObfefi9ht9nVZuKt1XP7eHDs7NwVljLSLVtSsErax1Tz3pG3O82eeq546Rg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js" integrity="sha512-qtX0GLM3qX8rxJN1gyDfcnMFFrKvixfoEOwbBib9VafR5vbChV5LeE5wSI/x+IlCkTY5ZFddFDCCfaVJJNnuKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
