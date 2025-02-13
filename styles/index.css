@@ -12,12 +12,12 @@
 
 @font-face {
     font-family: 'Galada';
-    src: url(res/Galada-Regular.ttf) format('woff2');
+    src: url(../fonts/Galada-Regular.ttf) format('woff2');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url(res/Poppins-Regular.ttf) format('woff2');
+    src: url(../fonts/Poppins-Regular.ttf) format('woff2');
 }
 
 html {

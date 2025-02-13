@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang=es>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Show ur Swag</title>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.css integrity="sha512-Fx2bx472ykst5EwyqNnGgXC2pPBxuxRnxHSa5Elf7sVbYA1vj2M/J50eJ0aXDal5hDjdSl3EEaQCaO5y69HmcQ==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=styles/index.min.css>
+</head>
+<body>
+<div id=upload-screen>
+<div id=upload-container>
+<h1>Show ur Swag</h1>
+<img id=logo src=images/logo.png alt="Show ur Swag Logo">
+<p class=description>Easily upload and visualize your <a href=https://swagger.io/resources/open-api/ rel=noreferrer target=_blank>OpenAPI</a> documentation from YAML or JSON files. Give your API some swagger and let them shine in style!</p>
+<div class=dropzone id=dropzone>Drag & drop your YAML/JSON file here or click to select one</div>
+<input type=file id=fileInput accept=.yaml,.yml,.json class=hidden>
+</div>
+</div>
+<div id=swagger-screen class=hidden>
+<div class=top-bar>
+<button id=backButton title=Home>Show ur Swag</button>
+</div>
+<div id=swagger-container></div>
+</div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui-bundle.min.js integrity="sha512-9tBcCofqWq+PelL6USpUB7OJrCaObfefi9ht9nVZuKt1XP7eHDs7NwVljLSLVtSsErax1Tz3pG3O82eeq546Rg==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js integrity="sha512-qtX0GLM3qX8rxJN1gyDfcnMFFrKvixfoEOwbBib9VafR5vbChV5LeE5wSI/x+IlCkTY5ZFddFDCCfaVJJNnuKQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=js/main.min.js></script>
+</body>
+</html>

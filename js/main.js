@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadScreen = document.getElementById("upload-screen");
     const swaggerScreen = document.getElementById("swagger-screen");
     const backButton = document.getElementById("backButton");
-    const shareButton = document.getElementById("shareButton");
+    // const shareButton = document.getElementById("shareButton");
 
     const urlParams = new URLSearchParams(window.location.search);
     const spec = urlParams.get("swag");
@@ -17,10 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error("Error loading Swagger from URL", error);
         }
-    }
-
-    if (navigator.canShare) {
-        shareButton.classList.remove("hidden");
     }
 
     function showSwagger(json) {
@@ -93,14 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
         body.classList.remove("default-background");
     });
 
-    shareButton.addEventListener("click", () => {
-        navigator.share({
-            title: "Share my Swag - API Documentation",
-            url: window.location
-            }).then(() => {
-                console.log('Thanks for sharing!');
-            })
-            .catch(console.error);
-    });
+    // if (navigator.canShare) {
+    //     shareButton.classList.remove("hidden");
+    // }
+    // 
+    // shareButton.addEventListener("click", () => {
+    //     navigator.share({
+    //         title: "Share my Swag - API Documentation",
+    //         url: window.location
+    //         }).then(() => {
+    //             console.log('Thanks for sharing!');
+    //         })
+    //         .catch(console.error);
+    // });
 
 });
